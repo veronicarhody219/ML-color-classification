@@ -6,7 +6,7 @@ function gotResults(error, results) {
   if (error) {
     console.log(error);
   } else {
-    // console.log(results); 
+    // console.log(results);
     label = results[0].label;
     mobilenet.predict(gotResults);
   }
@@ -14,6 +14,7 @@ function gotResults(error, results) {
 function setup() {
   createCanvas(640, 550);
   video = createCapture(VIDEO);
+  video.size(640, 550);
   video.hide();
   background(0);
   mobilenet = ml5.imageClassifier("MobileNet", video, modelReady);
